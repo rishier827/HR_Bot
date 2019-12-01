@@ -1,0 +1,60 @@
+intents:
+- askLeaveBalance
+- askLeaveTypes
+- whereToApplyLeaves
+- chitchat
+
+actions:
+- respond_chitchat
+- utter_askLeaveBalance
+- utter_askLeaveTypes
+- utter_whereToApplyLeaves
+- action_greet_user
+
+templates:
+  utter_askLeaveBalance:
+  - text: "here is your leave balance details"
+    custom:
+      payload: chart
+      data:
+        title: Leaves
+        labels:
+        - Sick Leave
+        - Casual Leave
+        - Earned Leave
+        - Flexi Leave
+        backgroundColor:
+        - "#36a2eb"
+        - "#ffcd56"
+        - "#ff6384"
+        - "#009688"
+        - "#c45850"
+        chartsData:
+        - 5
+        - 10
+        - 22
+        - 3
+        chartType: pie
+        displayLegend: 'true'
+  
+  utter_askLeaveTypes:
+  - text: "You can apply for below leaves"
+    custom: 
+        payload: "collapsible"
+        data: 
+        - title: Sick Leave
+          description: Sick leave is time off from work that workers can use to stay home
+            to address their health and safety needs without losing pay.
+        - title: Earned Leave
+          description: 'Earned Leaves are the leaves which are earned in the previous year
+            and enjoyed in the preceding years. '
+        - title: Casual Leave
+          description: Casual Leave are granted for certain unforeseen situation or were you
+            are require to go for one or two days leaves to attend to personal matters and
+            not for vacation.
+        - title: Flexi Leave
+          description: Flexi leave is an optional leave which one can apply directly in system
+            at lease a week before.
+
+  utter_whereToApplyLeaves:
+  - text: "You can apply leave here at abc..."
